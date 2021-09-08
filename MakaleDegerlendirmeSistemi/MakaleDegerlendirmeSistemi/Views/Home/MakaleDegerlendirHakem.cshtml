@@ -1,0 +1,58 @@
+﻿@model MakaleDegerlendirmeSistemi.ViewModels.HakemMakaleDegerlendirModel
+
+@{
+    ViewBag.Title = "Makale Değerlendir Hakem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Html.Raw(TempData["dosyaUzantisi"])
+<h2>Makale Yükle</h2>
+<br />
+<div class="features-content">
+    <div class="container" style="margin-left:2%;float:left;">
+        @using (Html.BeginForm("MakaleDegerlendirHakem", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.MakaleID)
+            
+
+            <div class="form-group col-lg-7">
+                <label for="text" class="form-yazilari">Not:</label>
+                <input type="text" class="form-control" id="not" placeholder="Makale Notu" value="" name="Not" onchange="notChanged()">
+            </div>
+            <div class="form-group col-lg-7">
+                <label class="form-yazilari">Değerlendirme Raporu(PDF):</label>
+
+                <input type="file" id="dosya-sec" class="custom-file" value="Dosya Seç" name="HakemDegerlendirmeRaporuYol" accept="application/pdf" />
+            </div>
+            <div class="form-group col-lg-7">
+                <label for="pwd" class="form-yazilari">Revizyon İsteği:</label>
+                <textarea id="revizyon-istegi" class="form-control" rows="10" placeholder="Revizyon Açıklaması Giriniz." name="RevizyonIstegi" onchange="revizyonIstegiChanged()"></textarea>
+            </div>
+            
+            <div class="form-group col-lg-7">
+                <button type="submit" class="btn btn-success">Makaleyi Değerlendir</button>
+            </div>
+        }
+    </div>
+    <script>
+        function notChanged() {
+            if (document.getElementById("not").value != "") {
+                document.getElementById("revizyon-istegi").disabled = true;
+            }
+            else {
+                document.getElementById("revizyon-istegi").disabled = false;
+            }
+        }
+        function revizyonIstegiChanged() {
+            if (document.getElementById("revizyon-istegi").value != "") {
+                document.getElementById("not").disabled = true;
+                document.getElementById("dosya-sec").disabled = true;
+            }
+            else {
+                document.getElementById("not").disabled = false;
+                document.getElementById("dosya-sec").disabled = false;
+            }
+        }
+    </script>
+</div>

@@ -1,0 +1,18 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Ana sayfa";
+}
+
+
+@{
+    if (Session["KullaniciRol"].ToString() == "Yazar")
+    {
+        <p>Makale Değerlendirme sistemine hoş geldiniz. Dilerseniz Makale Yükle bölümünden makalenizi yükleyebilir ya da Makaleler menüsünden diğer yazarlarımızın sisteme yüklediği makaleleri listeleyebilirsiniz.</p>
+    }
+    else if (Session["KullaniciRol"].ToString() == "Baş Editör")
+    {
+        <p>Makale Değerlendirme sistemine hoş geldiniz. Baş Editör</p>
+    }
+
+}

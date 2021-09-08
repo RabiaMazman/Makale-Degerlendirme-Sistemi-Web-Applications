@@ -1,0 +1,51 @@
+﻿@model IEnumerable<MakaleDegerlendirmeSistemi.ViewModels.BasEditorMakaleListeleModel>
+
+@{
+    ViewBag.Title = "Makale Listele Diğer Yazar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Makale Listele</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleBaslik)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.YazarKullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDurum)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDegisimTarihi)
+        </th>
+     
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleBaslik)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.YazarKullaniciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleDurum)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleDegisimTarihi)
+            </td>
+            
+        </tr>
+    }
+
+</table>

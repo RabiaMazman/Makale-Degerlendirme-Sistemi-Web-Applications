@@ -1,0 +1,82 @@
+﻿@model IEnumerable<MakaleDegerlendirmeSistemi.Models.Makaleler>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDosyaYol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevizyonIstenmisMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDurum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YazarIDFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlanEditoruIDFK)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kisiler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDegisimTarihi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakaleBaslik)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakaleAciklama)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakaleDosyaYol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RevizyonIstenmisMi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakaleDurum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YazarIDFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AlanEditoruIDFK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kisiler)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MakaleDegisimTarihi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MakaleID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MakaleID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MakaleID })
+        </td>
+    </tr>
+}
+
+</table>

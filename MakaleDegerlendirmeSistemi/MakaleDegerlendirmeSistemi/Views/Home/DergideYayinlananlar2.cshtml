@@ -1,0 +1,133 @@
+﻿@model IEnumerable<MakaleDegerlendirmeSistemi.ViewModels.BasEditorMakaleListeleModel>
+@{
+    ViewBag.Title = "Dergide Yayinlananlar";
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/Content/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/Content/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/Content/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <table class="table" border="0">
+                <tr>
+                    <td colspan="5"><h2>Dergide Yayınlananlar</h2></td>
+                    <td><input type="text" onkeyup="myFunction()" id="MakaleBaslikAra" style="border:revert;margin-left:35%;margin-top:1%;" placeholder="Makale Başlığa Göre Ara" /></td>
+                    <td><a class="btn btn-success" href="/makale-basliga-gore-ara/"><i class="fa fa-search"></i></a>
+
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table" id="myTable">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MakaleBaslik)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MakaleAciklama)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MakaleDosyaYol)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.YazarKullaniciAdi)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td id="MakaleBaslikTd">
+                            @Html.DisplayFor(modelItem => item.MakaleBaslik)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.MakaleAciklama)
+                        </td>
+                        <td>
+                            <a style="color:blue;" href="@item.MakaleDosyaYol" download="@item.MakaleDosyaYol">Dosyayı İndir</a>
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.YazarKullaniciAdi)
+                        </td>
+                    </tr>
+                }
+
+        </table>
+            <div class="form-group">
+                <a class="btn btn-success" href="/">Ana sayfaya dön</a>
+            </div>
+    </div>
+    </div>
+    <script src="/Content/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/vendor/bootstrap/js/popper.js"></script>
+    <script src="/Content/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/Content/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="/Content/js/main.js"></script>
+
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("MakaleBaslikAra");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

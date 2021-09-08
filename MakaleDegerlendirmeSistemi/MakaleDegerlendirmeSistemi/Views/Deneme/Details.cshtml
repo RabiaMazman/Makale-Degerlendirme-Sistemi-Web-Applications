@@ -1,0 +1,91 @@
+﻿@model MakaleDegerlendirmeSistemi.Models.Makaleler
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Makaleler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleDosyaYol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleDosyaYol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RevizyonIstenmisMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RevizyonIstenmisMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleDurum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleDurum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YazarIDFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YazarIDFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AlanEditoruIDFK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlanEditoruIDFK)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kisiler)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kisiler)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MakaleDegisimTarihi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MakaleDegisimTarihi)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MakaleID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model MakaleDegerlendirmeSistemi.ViewModels.BasEditorDergiOnerModel
+
+
+@{
+    ViewBag.Title = "MakaleYonlendirBasEditor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("MakaleOnerideBulunBasEditor", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Öneride Bulun</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MakaleID)
+
+
+        <div class="form-group col-lg-7">
+            <label for="text" class="form-yazilari">Dergi1:</label>
+            <input type="text" class="form-control" placeholder="Dergi 1" value="" name="Dergi1">
+        </div>
+        <div class="form-group col-lg-7">
+            <label for="text" class="form-yazilari">Dergi2:</label>
+            <input type="text" class="form-control" placeholder="Dergi 2" value="" name="Dergi2">
+        </div>
+        <div class="form-group col-lg-7">
+            <label for="pwd" class="form-yazilari">Öneri:</label>
+            <textarea class="form-control" rows="10" placeholder="Öneri giriniz" name="Oneri"></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Gönder" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+

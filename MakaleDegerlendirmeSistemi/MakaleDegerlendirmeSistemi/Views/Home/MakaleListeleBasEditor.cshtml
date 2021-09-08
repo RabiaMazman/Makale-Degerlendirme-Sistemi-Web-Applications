@@ -1,0 +1,109 @@
+﻿@model IEnumerable<MakaleDegerlendirmeSistemi.ViewModels.BasEditorMakaleListeleModel>
+
+@{
+    ViewBag.Title = "Makale Listele Baş Editör";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Makale Listele</h2>
+ 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleBaslik)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleAciklama)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDosyaYol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RevizyonIstenmisMi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YazarKullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDurum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hakemler)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlanEditoru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MakaleDegisimTarihi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Not1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Not2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Not3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NotOrt)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleBaslik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleAciklama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleDosyaYol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RevizyonIstenmisMi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.YazarKullaniciAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleDurum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hakemler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlanEditoru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MakaleDegisimTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Not1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Not2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Not3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NotOrt)
+            </td>
+            <td>
+                <a href='/makale-yonlendir-bas-editor?id=@item.MakaleID' class="btn btn-warning">
+                    Yönlendir
+                </a>
+            </td>
+            <td>
+                <a href='/makale-oneride-bulun-bas-editor?id=@item.MakaleID' class="btn btn-info">
+                    Öneride Bulun
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

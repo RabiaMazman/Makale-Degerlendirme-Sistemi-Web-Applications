@@ -1,0 +1,74 @@
+﻿@model MakaleDegerlendirmeSistemi.ViewModels.BasEditorKisiListeleModel
+
+@{
+    ViewBag.Title = "KisiSilBasEditor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kişi Sil</h2>
+
+<h3>Silmek istediğinizden emin misiniz?</h3>
+<div>
+    <h4>Kisiler</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiSifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiSifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KisiSifreTekrar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KisiSifreTekrar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RolAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RolAdi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("HakemSilAlanEditoru", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Hakem Listesine Geri Dön", "HakemListeleAlanEditoru")
+        </div>
+    }
+</div>

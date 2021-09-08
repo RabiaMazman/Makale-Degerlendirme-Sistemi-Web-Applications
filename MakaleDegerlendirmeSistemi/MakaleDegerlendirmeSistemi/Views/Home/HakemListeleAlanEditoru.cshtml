@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MakaleDegerlendirmeSistemi.ViewModels.BasEditorKisiListeleModel>
+
+@{
+    ViewBag.Title = "Hakemleri Listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Kişi Listele</h2>
+
+<p>
+    @Html.ActionLink("Yeni Hakem ekle", "YeniHakemEkleAlanEditoru")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KisiAd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KisiSoyad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KisiEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KisiSifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KisiSifreTekrar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RolAdi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiAd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiSifre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KisiSifreTekrar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RolAdi)
+            </td>
+            <td>
+                @Html.ActionLink("Sil", "HakemSilAlanEditoru", new { id = item.KisiID })
+            </td>
+        </tr>
+    }
+
+</table>

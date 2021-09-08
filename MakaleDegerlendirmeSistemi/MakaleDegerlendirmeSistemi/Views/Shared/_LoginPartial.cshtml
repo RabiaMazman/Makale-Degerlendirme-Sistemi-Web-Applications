@@ -1,0 +1,19 @@
+﻿
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+       
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Session["KullaniciAdi"].ToString()</li>
+        <li>@Html.ActionLink("Çıkış Yap", "Logout", "Home", routeValues: null, htmlAttributes: new { id = "loginLink",@class="btn btn-primary" })</li>
+    </ul>
+}

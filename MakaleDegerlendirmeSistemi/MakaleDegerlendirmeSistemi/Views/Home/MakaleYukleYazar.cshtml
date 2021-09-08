@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "MakaleYukleYazar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(TempData["dosyaUzantisi"])
+<h2>Makale Yükle</h2>
+<div class="features-content">
+    <div class="container" style="margin-left:2%;float:left;">
+        @using (Html.BeginForm("MakaleYukleYazar", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+                            <div class="form-group col-lg-7">
+                                <label for="text" class="form-yazilari">Başlık:</label>
+                                <input type="text" class="form-control" required id="pwd" placeholder="Makale Başlığı" value="" name="MakaleBaslik">
+
+                            </div>
+                            <div class="form-group col-lg-7">
+                                <label for="pwd" class="form-yazilari">Açıklama:</label>
+                                <textarea class="form-control" id="pwd" rows="3" placeholder="Açıklaması" name="MakaleAciklama"></textarea>
+                            </div>
+                           
+                            <div class="form-group col-lg-7">
+                                <label for="pwd" class="form-yazilari">Makale Dosya(PDF):</label>
+                                <input type="file" class="custom-file" value="Dosya Seç" name="MakaleDosyaYol" accept="application/pdf" />
+                            </div>
+                            
+                            <div class="form-group col-lg-7">
+                                <button type="submit" class="btn btn-primary">Makale Yükle</button>
+                            </div>
+        }
+    </div>
+</div>
